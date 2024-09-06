@@ -1,0 +1,4 @@
+DNP-Reexam/WebApi/obj
+DNP-Reexam/EFC/obj
+DNP-Reexam/Blazor/obj
+DNP-Reexam/Blazor/bin
