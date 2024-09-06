@@ -1,0 +1,50 @@
+﻿@page "/NewYearBookEntry"
+@using  Blazor.Services
+@using  Blazor.Model
+@inject IYearBookService InMemoryYearBookService
+<h3>NewYearBookEntry</h3>
+
+<div>
+    <label>Name:</label>
+    <input type="text" @bind="name" />
+</div>
+<div>
+    <label>Pronouns:</label>
+    <input type="text" @bind="pronouns" />
+</div>
+
+<div>
+    <label>Fun fact:</label>
+    <input type="text" @bind="funFact" />
+</div>
+<div>
+    <label>Image URL:</label>
+    <input type="text" @bind="imageUrl" />
+</div>
+<button @onclick="Register" class="acceptbtn">Register Dog</button>
+
+<p>@message</p>
+
+@code {
+    //Name, Pronouns, Fun fact, Image Url, Year.
+    private string name;
+    private string pronouns;
+    private string funFact;
+    
+    private string imageUrl;
+    private string message = "";
+    private void Register()
+    {
+ 
+        var newYearBookEntry = new YearBookEntry(1, name,pronouns,funFact, imageUrl, DateTime.Now);
+        InMemoryYearBookService.AddYearBookEntry(newYearBookEntry);
+        
+        message = $"YearBookEntry {name} was registered successfully!";
+        
+    
+        name = string.Empty;
+        pronouns = string.Empty;
+        funFact = string.Empty;
+        imageUrl = string.Empty;
+    }
+}
