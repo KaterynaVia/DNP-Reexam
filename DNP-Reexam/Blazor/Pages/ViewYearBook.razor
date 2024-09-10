@@ -1,0 +1,53 @@
+﻿@page "/ViewYearBook"
+@using Blazor.Services
+@using Blazor.Model
+@inject IYearBookService InMemoryYearBookService
+
+<h3>Year Book Entries</h3>
+
+<YearBookStatistics />
+
+@if (yearBookEntries == null || !yearBookEntries.Any())
+{
+    <p>No entries found.</p>
+}
+else
+{
+    @foreach (var entry in yearBookEntries)
+    {
+        <div class="yearbook-entry" @onclick="() => ToggleFunFact(entry.Id)">
+            <img src="@entry.ImageUrl" alt="@entry.Name" style="width: 100px; height: 100px;" />
+            <p><strong>Name:</strong> @entry.Name</p>
+            <p><strong>Pronouns:</strong> @entry.Pronouns</p>
+
+            @if (selectedEntryId == entry.Id)
+            {
+                <p><strong>Fun Fact:</strong> @entry.FunFact</p>
+            }
+        </div>
+        <hr />
+    }
+}
+
+@code {
+    private List<YearBookEntry> yearBookEntries;
+    private int selectedEntryId = -1;
+
+    protected override void OnInitialized()
+    {
+
+        yearBookEntries = InMemoryYearBookService.GetAllYearBookEntries();
+    }
+
+    private void ToggleFunFact(int id)
+    {
+        if (selectedEntryId == id)
+        {
+            selectedEntryId = -1; 
+        }
+        else
+        {
+            selectedEntryId = id; 
+        }
+    }
+}
