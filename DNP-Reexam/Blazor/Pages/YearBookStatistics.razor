@@ -1,0 +1,18 @@
+﻿@using Blazor.Services
+@using Blazor.Model
+@inject IYearBookService InMemoryYearBookService
+
+<h3>YearBook Entry Statistics</h3>
+
+<div class="d-flex flex-column">
+    @foreach (var entry in InMemoryYearBookService.GetAllYearBookEntries().GroupBy(e => e.StartedYear).Select(g => new { Year = g.Key, Count = g.Count() }))
+    {
+        <div>
+            Year: @entry.Year            Count: @entry.Count
+        </div>
+    }
+</div>
+
+@code {
+    
+}

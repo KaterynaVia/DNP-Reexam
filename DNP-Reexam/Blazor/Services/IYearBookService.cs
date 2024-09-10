@@ -4,6 +4,6 @@ namespace Blazor.Services;
 
 public interface IYearBookService
 {
-    List<YearBookEntry> getAllYearBookEntries();
-    void AddYearBookEntry(YearBookEntry YearBookEntry);
+    List<YearBookEntry> GetAllYearBookEntries();
+    void AddYearBookEntry(YearBookEntry yearBookEntry);
 }
