@@ -1,17 +1,46 @@
 ﻿@using Blazor.Services
 @using Blazor.Model
+
+
+
+@page "/yearbook-stats"
+@using Blazor.Services
+@using Blazor.Model
 @inject IYearBookService InMemoryYearBookService
 
 <h3>YearBook Entry Statistics</h3>
 
 <div class="d-flex flex-column">
+    @foreach (var entry in YearBook)
     {
         <div>
-            Year: @entry.Year            Count: @entry.Count
+            Year: @entry.Year &nbsp;&nbsp; Count: @entry.Count
         </div>
     }
 </div>
 
 @code {
-    
+    // A list to store the statistics data
+    private List<YearStatistics> YearBook;
+
+    protected override void OnInitialized()
+    {
+        // Get all yearbook entries and group them by year with their count
+        YearBook = InMemoryYearBookService.GetAllYearBookEntries()
+            .GroupBy(entry => entry.Year)
+            .Select(group => new YearStatistics
+            {
+                Year = group.Key,
+                Count = group.Count()
+            })
+            .OrderBy(stat => stat.Year)
+            .ToList();
+    }
+
+    // Helper class to hold year statistics
+    private class YearStatistics
+    {
+        public int Year { get; set; }
+        public int Count { get; set; }
+    }
 }
