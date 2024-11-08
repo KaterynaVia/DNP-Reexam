@@ -5,7 +5,6 @@
 <h3>YearBook Entry Statistics</h3>
 
 <div class="d-flex flex-column">
-    @foreach (var entry in InMemoryYearBookService.GetAllYearBookEntries().GroupBy(e => e.Year).Select(g => new { Year = g.Key, Count = g.Count() }))
     {
         <div>
             Year: @entry.Year            Count: @entry.Count
