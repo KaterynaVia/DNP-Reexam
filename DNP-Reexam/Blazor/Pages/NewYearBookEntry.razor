@@ -30,32 +30,38 @@
 <p>@message</p>
 
 @code {
+
     //Name, Pronouns, Fun fact, Image Url, Year.
     private string name;
     private string pronouns;
     private string funFact;
-    
+
     private string imageUrl;
     private int year;
     private string message = "";
+
     private void Register()
     {
-        if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(imageUrl) || year == 0)
+        if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(imageUrl) || year < 1900 || year > 2100)
         {
             message = "Please fill in all required fields.";
             return;
         }
- 
-        var newYearBookEntry = new YearBookEntry(0, name,pronouns,funFact, imageUrl, year);
+
+        var newYearBookEntry = new YearBookEntry(0, name, pronouns, funFact, imageUrl, year);
         InMemoryYearBookService.AddYearBookEntry(newYearBookEntry);
-        
+
         message = $"YearBookEntry {name} was registered successfully!";
-        
-    
+        ResetForm();
+    }
+
+    private void ResetForm()
+    {
         name = string.Empty;
         pronouns = string.Empty;
         funFact = string.Empty;
         imageUrl = string.Empty;
         year = 0;
     }
+    
 }
