@@ -42,7 +42,9 @@
 
     private void Register()
     {
-        if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(imageUrl) || year < 1900 || year > 2100)
+        if (string.IsNullOrWhiteSpace(name) || 
+            string.IsNullOrWhiteSpace(imageUrl) || 
+            year < 1900 || year > 2100)
         {
             message = "Please fill in all required fields.";
             return;
