@@ -66,3 +66,28 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+    
+.yearbook-container {
+    display: flex;           /* Horizontal alignment */
+    flex-wrap: wrap;         /* Wrap to the next row if needed */
+    justify-content: center; /* Center items horizontally */
+    gap: 20px;               /* Space between items */
+    padding: 20px;
+}
+
+.yearbook-entry {
+    text-align: center;
+    width: 150px;
+}
+
+.yearbook-entry img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.yearbook-entry p {
+    margin: 5px 0;
+    font-size: 14px;
+}

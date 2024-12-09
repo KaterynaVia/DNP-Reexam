@@ -2,6 +2,7 @@
 @using  Blazor.Services
 @using  Blazor.Model
 @inject IYearBookService InMemoryYearBookService
+<div class="center-container">
 <h3>NewYearBookEntry</h3>
 
 <div>
@@ -25,10 +26,10 @@
     <label>Started Year:</label>
     <input type="number" @bind="year" />
 </div>
-<button @onclick="Register" class="acceptbtn">Register Entry</button>
+<button @onclick="Register" class="acceptbtn">Register</button>
 
 <p>@message</p>
-
+</div>
 @code {
 
     //Name, Pronouns, Fun fact, Image Url, Year.

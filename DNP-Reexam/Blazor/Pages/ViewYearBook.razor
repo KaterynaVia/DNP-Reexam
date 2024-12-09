@@ -5,7 +5,7 @@
 
 <h3>Year Book Entries</h3>
 
-<YearBookStatistics />
+<YearBookStatistics/>
 
 @if (yearBookEntries == null || !yearBookEntries.Any())
 {
@@ -13,20 +13,27 @@
 }
 else
 {
-    @foreach (var entry in yearBookEntries)
-    {
-        <div class="yearbook-entry" @onclick="() => ToggleFunFact(entry.Id)">
-            <img src="@entry.ImageUrl" alt="@entry.Name" style="width: 100px; height: 100px;" />
-            <p><strong>Name:</strong> @entry.Name</p>
-            <p><strong>Pronouns:</strong> @entry.Pronouns</p>
+    <div class="yearbook-container">
+        @foreach (var entry in yearBookEntries)
+        {
+            <div class="yearbook-entry" @onclick="() => ToggleFunFact(entry.Id)">
+                <img src="@entry.ImageUrl" alt="@entry.Name" style="width: 100px; height: 100px;"/>
+                <p>
+                    <strong>Name:</strong> @entry.Name
+                </p>
+                <p>
+                    <strong>Pronouns:</strong> @entry.Pronouns
+                </p>
 
-            @if (selectedEntryId == entry.Id)
-            {
-                <p><strong>Fun Fact:</strong> @entry.FunFact</p>
-            }
-        </div>
-        <hr />
-    }
+                @if (selectedEntryId == entry.Id)
+                {
+                    <p>
+                        <strong>Fun Fact:</strong> @entry.FunFact
+                    </p>
+                }
+            </div>
+        }
+    </div>
 }
 
 @code {
@@ -35,7 +42,6 @@ else
 
     protected override void OnInitialized()
     {
-
         yearBookEntries = InMemoryYearBookService.GetAllYearBookEntries();
     }
 
@@ -43,11 +49,12 @@ else
     {
         if (selectedEntryId == id)
         {
-            selectedEntryId = -1; 
+            selectedEntryId = -1;
         }
         else
         {
-            selectedEntryId = id; 
+            selectedEntryId = id;
         }
     }
+
 }
