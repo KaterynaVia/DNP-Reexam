@@ -13,11 +13,11 @@ namespace Blazor.Services
         {
             _yearBookEntries = new List<YearBookEntry>
             {
-                new YearBookEntry(1, "Harry", "he", "Loves hiking", "https://img.freepik.com/free-photo/man-glasses-orange-shirt-surprised-confused-standing-green-wall_141793-61019.jpg?size=626&ext=jpg", 2020),
-                new YearBookEntry(2, "Harry2", "he", "Fan of science fiction novels", "https://img.freepik.com/free-photo/man-glasses-orange-shirt-surprised-confused-standing-green-wall_141793-61019.jpg?size=626&ext=jpg", 2021),
-                new YearBookEntry(3, "Harry3", "he", "Enjoys painting", "https://img.freepik.com/free-photo/man-glasses-orange-shirt-surprised-confused-standing-green-wall_141793-61019.jpg?size=626&ext=jpg", 2010),
-                new YearBookEntry(4, "Harry4", "he", "Speaks 4 languages", "https://img.freepik.com/free-photo/man-glasses-orange-shirt-surprised-confused-standing-green-wall_141793-61019.jpg?size=626&ext=jpg", 2010),
-                new YearBookEntry(5, "Harry5", "he", "Likes dancing", "https://img.freepik.com/free-photo/medium-shot-woman-wearing-headphones_23-2149818230.jpg?t=st=1731065514~exp=1731069114~hmac=31d5a63c2da1db5f317216fd9ba28500f293b1a7ebb31445b1f0ae6ccf4f138e&w=1060", 2015)
+                new YearBookEntry(1, "Anna", "she/her", "Loves hiking", "https://media.istockphoto.com/id/1469154354/photo/portrait-of-laughing-beautiful-woman-touching-her-face.jpg?s=2048x2048&w=is&k=20&c=va9FZUX2rk2kqduj0Z5OKYXKjCEkUFZxOxEwQJ63vp8=", 2020),
+                new YearBookEntry(2, "Sara", "she/her", "Fan of science fiction novels", "https://media.istockphoto.com/id/986564312/photo/first-rule-of-the-weekend-unwind.jpg?s=2048x2048&w=is&k=20&c=_h6T0sHNczz83vnRSI6_0aCfALNZmasHEO34_V5yeXM=", 2021),
+                new YearBookEntry(3, "Oskar", "he/him", "Enjoys painting", "https://media.istockphoto.com/id/1550589735/photo/portrait-happy-or-confident-asian-man-with-arms-crossed-or-smile-in-studio-in-casual-fashion.jpg?s=2048x2048&w=is&k=20&c=zQWojgYFPUcYgz6czRNbvLilhvJ926Rwkwf4Tf8Nfw0=", 2010),
+                new YearBookEntry(4, "Harry", "he/him", "Speaks 4 languages", "https://img.freepik.com/free-photo/man-glasses-orange-shirt-surprised-confused-standing-green-wall_141793-61019.jpg?size=626&ext=jpg", 2010),
+                new YearBookEntry(5, "Hanna", "she/her", "Likes dancing", "https://img.freepik.com/free-photo/medium-shot-woman-wearing-headphones_23-2149818230.jpg?t=st=1731065514~exp=1731069114~hmac=31d5a63c2da1db5f317216fd9ba28500f293b1a7ebb31445b1f0ae6ccf4f138e&w=1060", 2015)
             };
             _nextId = _yearBookEntries.Max(d => d.Id) + 1;
         }
